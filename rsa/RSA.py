@@ -1,30 +1,24 @@
 from Crypto.PublicKey import RSA
 
-def newPair():
-	global rsa
-	rsa = RSA.generate(2048)
-	return rsa.publickey().exportKey("PEM"),rsa.exportKey("PEM")
-
-def myEncrypt(pathIn,pathOut):
-	return rsa.encrypt(open(path).read(),None)
-
-def myDecrypt(path):
-	return rsa.decrypt(open(path).read())
-
 def main():
+	rsa = RSA.generate(2048)
 	while 1:
-		op = int(raw_input("Digite 1 para gerar um novo par de chaves.\n" +
-						   "Digite 2 para mostrar a chave publica.\n" +
-				 		   "Digite 3 para encryptar um texto.\n" +
-						   "Digite 4 para decryptar um texto.\n"))
+		op = int(raw_input("\nDigite 1 para receber uma chave publica.\n" +
+						   "Digite 2 para criptografar(com a chave publica) um texto.\n" +
+						   "Digite 3 para decriptografar(com a chave privada) um texto.\n" ))
 		if op == 1:
-			keys = newPair()
+			path = raw_input("Digite o local para a chave publica: ")
+			open(path,'w').write(rsa.publickey().exportKey("PEM"))
 		elif op == 2:
-			print(keys[0])
-		elif op == 3:
-			myEncrypt(raw_input("Caminho para o arquivo com o texto:"))
+			keyPath = raw_input("Digite o local da chave publica: ")
+			textSrc = raw_input("Digite o local do texto a ser criptografado: ")
+			textDest = raw_input("Digite o local para o texto criptografado: ")
+			pubKey = RSA.importKey(open(keyPath).read())
+			text = open(textSrc).read()
+			open(textDest,'w').write(pubKey.encrypt(text,None)[0])
 		else:
-			pathKey = raw_input("Caminho para o arquivo com a chave publica:")
-			pathText = raw_input("Caminho para o arquivo com o texto:")
-			myDecrypt(pathKey,pathText)
+			textSrc = raw_input("Digite o local do texto a ser decriptografado: ")
+			textDest = raw_input("Digite o local para o texto decriptografado: ")
+			text = open(textSrc).read()
+			open(textDest,'w').write(rsa.decrypt(text))
 main()
