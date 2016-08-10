@@ -1,17 +1,17 @@
 from Crypto.PublicKey import RSA
 
 def newPair():
-	global rsa 
-	rsa = RSA.generate(2048)	
+	global rsa
+	rsa = RSA.generate(2048)
 	return rsa.publickey().exportKey("PEM"),rsa.exportKey("PEM")
 
-def myEncrypt(path):
-	print(path)
+def myEncrypt(pathIn,pathOut):
+	return rsa.encrypt(open(path).read(),None)
 
-def myDecrypt(pathKey,pathText):
-	print(pathKey,pathText)
+def myDecrypt(path):
+	return rsa.decrypt(open(path).read())
 
-def main():	
+def main():
 	while 1:
 		op = int(raw_input("Digite 1 para gerar um novo par de chaves.\n" +
 						   "Digite 2 para mostrar a chave publica.\n" +
