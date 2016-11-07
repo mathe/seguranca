@@ -4,7 +4,7 @@ from sys import argv
 def fill16Bytes(text):
 	textLen = len(text)
 	while textLen % 16 != 0:
-		text += 'P'
+		text += ' '
 		textLen += 1
 	return text
 
@@ -20,9 +20,9 @@ def main():
 	srcKey = open(argv[2]);
 	srcText = open(argv[3]);
 	destText = open(argv[4],'w');
-	
+
 	key = fill16Bytes(srcKey.read())
-	text = fill16Bytes(srcText.read())	
+	text = fill16Bytes(srcText.read())
 	if(argv[1] == "encrypt"):
 		destText.write(myEncrypt(key,text))
 	elif(argv[1] == "decrypt"):
