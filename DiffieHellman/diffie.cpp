@@ -11,7 +11,7 @@ ll explog(ll base,ll exp){
     if(exp & 1LL) return explog(base,exp-1LL)*base%M;
     ll a = explog(base,exp >> 1LL);
     return (a*a)%M;
-}   
+}
 
 ll bob(ll b,ll ca){
     return explog(ca,b);
@@ -32,6 +32,6 @@ int main(void){
     scanf("%lld",&Alice);
     printf("Insira a chave de Bob:\n");
     scanf("%lld",&Bob);
-    diffie(Alice,Bob);    
+    diffie(Alice,Bob);
     return 0;
 }
