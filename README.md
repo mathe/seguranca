@@ -13,3 +13,8 @@ Para descriptografar:
 python AES.py decrypt arquivo_com_chave arquivo_com_texto_criptografado arquivo_para_saida
 
 RSA: É só ler o menu.
+
+Digital_Signature:
+
+-s <local_do_arquivo_com_conteudo>
+-c <local_do_arquivo_com_assinatura_para_ser_validada>  
