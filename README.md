@@ -18,3 +18,16 @@ Digital_Signature:
 
 -s <local_do_arquivo_com_conteudo>
 -c <local_do_arquivo_com_assinatura_para_ser_validada>  
+
+BO: É somente necessário a execução do servidor e do cliente.
+
+cypher:
+
+caesar.py tamanho_shift origem.txt destino.txt
+
+Cifrar:
+Caso tamanho_shift > 0 o shift será feito para a direita
+Caso tamanho_shift < 0 o shift será feito para a esquerda
+
+Decifrar:
+Basta utilizar tamanho_shift*(-1)
