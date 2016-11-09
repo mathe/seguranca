@@ -11,7 +11,7 @@ def caesar(src,dest,shift):
     text_src = src.read()
     text_dest = ""
     for t in text_src:
-        rt = (ord(t)-ord('a')+shift+26) % 26
+        rt = (ord(t)-ord('a')+shift+256) % 256
         text_dest += chr(ord('a')+rt)
     dest.write(text_dest)
 
