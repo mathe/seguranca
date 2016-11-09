@@ -23,11 +23,16 @@ BO: É somente necessário a execução do servidor e do cliente.
 
 cypher:
 
-caesar.py tamanho_shift origem.txt destino.txt
+Caesar:
+Para criptografar:
+caesar.py -e tamanho_shift origem.txt destino.txt
 
-Cifrar:
-Caso tamanho_shift > 0 o shift será feito para a direita
-Caso tamanho_shift < 0 o shift será feito para a esquerda
+Para decriptografar:
+caesar.py -d tamanho_shift origem.txt destino.txt
 
-Decifrar:
-Basta utilizar tamanho_shift*(-1)
+Vigenere:
+Para criptografar:
+vigenere.py -e key.txt origem.txt destino.txt
+
+Para decriptografar:
+vigenere.py -d key.txt origem.txt destino.txt
