@@ -47,3 +47,15 @@ vigenere.py -e key.txt origem.txt destino.txt
 Para decriptografar:
 vigenere.py -d key.txt origem.txt destino.txt
 
+Substituição:
+O arquivo key.txt deve ser conter 256 tuplas no formato:
+A B
+onde A e B são símbolos do alfabeto, cada tupla indica que o símbolo A
+será substituido pelo símbolo B.
+
+Para criptografar:
+vigenere.py -e key.txt origem.txt destino.txt
+
+Para decriptografar:
+vigenere.py -d key.txt origem.txt destino.txt
+
