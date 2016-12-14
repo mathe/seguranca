@@ -22,12 +22,15 @@ Digital_Signature:
 BO: É somente necessário a execução do servidor e do cliente.
 
 cypher:
+O arquivo origem.txt deve conter o texto a ser criptografado/decriptografado.
+O arquivo destino.txt será onde o texto criptografado/decriptografado será guardado.
 
 Caesar:
 Para criptografar:
 caesar.py -e tamanho_shift origem.txt destino.txt
 
 Para decriptografar:
+tamanho_do_shift deve ser o tamanho do shift em que o texto foi criptografado.
 caesar.py -d tamanho_shift origem.txt destino.txt
 
 Vigenere:
@@ -36,3 +39,11 @@ vigenere.py -e key.txt origem.txt destino.txt
 
 Para decriptografar:
 vigenere.py -d key.txt origem.txt destino.txt
+
+Transposicao:
+Para criptografar:
+vigenere.py -e key.txt origem.txt destino.txt
+
+Para decriptografar:
+vigenere.py -d key.txt origem.txt destino.txt
+
