@@ -1,4 +1,5 @@
 from sys import argv
+from math import * 
 from huffman import *
 
 def freq(dir):    
@@ -9,14 +10,20 @@ def freq(dir):
     for c in txt:
         cnt[c] = cnt[c] + 1 if c in cnt else 1    
     l = []
-    for s, f in cnt.iteritems(): l.append(Node(s,f))
+    H = 0
+    len_txt = len(txt)    
+    for s, f in cnt.iteritems():         
+        ff = float(f)                   
+        H += ff / len_txt * log( len_txt / ff, 256)
+        l.append(Node(s,f))
+    print(str(H))
     return l
     
 def compress(dir,code):    
     text_file = open(dir)
     text = text_file.read()
     text_file.close()
-    text_code = ""
+    text_code = ""    
     for c in text:
         text_code += code[c].to01()   
     return "1" + text_code
