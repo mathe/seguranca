@@ -59,3 +59,8 @@ vigenere.py -e key.txt origem.txt destino.txt
 Para decriptografar:
 vigenere.py -d key.txt origem.txt destino.txt
 
+Padroes:
+palavras.txt deve ser o arquivo de texto contendo as palavras. As palavras 
+devem ser separadas por espaço ou quebra de linha.
+padroes.txt deve ser o arquivo de texto contendo os padrões de cada palavra.
+padroes.py palavras.txt padroes.txt
